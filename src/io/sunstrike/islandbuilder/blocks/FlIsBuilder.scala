@@ -72,8 +72,6 @@ class FlIsBuilder(id:Int, mat:Material) extends CSBlock(id, mat) {
 
     override def isOpaqueCube: Boolean = true
 
-    override def canConnectRedstone(world: IBlockAccess, x: Int, y: Int, z: Int, side: Int): Boolean = true
-
     override def hasTileEntity(metadata: Int): Boolean = metadata >= 0 && metadata <= 2
 
     override def createTileEntity(world: World, metadata: Int): TileEntity = {

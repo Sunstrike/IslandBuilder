@@ -8,6 +8,7 @@ import net.minecraft.item.{Item, ItemStack}
 import cpw.mods.fml.common.registry.{GameRegistry, LanguageRegistry}
 import collection.JavaConversions._
 import net.minecraft.block.Block
+import net.minecraftforge.oredict.ShapedOreRecipe
 
 /*
  * ForgeRegistration
@@ -23,7 +24,6 @@ object ForgeRegistration {
 
     private def registerBlocks() {
         val stick = new ItemStack(Item.stick)
-        val plank = new ItemStack(Block.planks)
         val miniMod = new ItemStack(item_FlIsModule, 1, 0)
         val normMod = new ItemStack(item_FlIsModule, 1, 1)
         val hugeMod = new ItemStack(item_FlIsModule, 1, 2)
@@ -35,9 +35,9 @@ object ForgeRegistration {
             val stack = new ItemStack(block_FlIsBuilder, 1, i)
             LanguageRegistry.addName(stack, flIsBuilderNames(stack.getItemDamage))
         }
-        GameRegistry.addShapedRecipe(new ItemStack(block_FlIsBuilder, 1, 0), "PSP", "SMS", "PSP", 'P'.asInstanceOf[Character], plank, 'S'.asInstanceOf[Character], stick, 'M'.asInstanceOf[Character], miniMod)
-        GameRegistry.addShapedRecipe(new ItemStack(block_FlIsBuilder, 1, 1), "PSP", "SMS", "PSP", 'P'.asInstanceOf[Character], plank, 'S'.asInstanceOf[Character], stick, 'M'.asInstanceOf[Character], normMod)
-        GameRegistry.addShapedRecipe(new ItemStack(block_FlIsBuilder, 1, 2), "PSP", "SMS", "PSP", 'P'.asInstanceOf[Character], plank, 'S'.asInstanceOf[Character], stick, 'M'.asInstanceOf[Character], hugeMod)
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block_FlIsBuilder, 1, 0), "PSP", "SMS", "PSP", 'P'.asInstanceOf[Character], "plankWood", 'S'.asInstanceOf[Character], stick, 'M'.asInstanceOf[Character], miniMod))
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block_FlIsBuilder, 1, 1), "PSP", "SMS", "PSP", 'P'.asInstanceOf[Character], "plankWood", 'S'.asInstanceOf[Character], stick, 'M'.asInstanceOf[Character], normMod))
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block_FlIsBuilder, 1, 2), "PSP", "SMS", "PSP", 'P'.asInstanceOf[Character], "plankWood", 'S'.asInstanceOf[Character], stick, 'M'.asInstanceOf[Character], hugeMod))
     }
 
     private def registerItems() {
