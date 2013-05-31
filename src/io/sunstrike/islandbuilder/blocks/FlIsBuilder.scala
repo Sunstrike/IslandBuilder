@@ -156,7 +156,7 @@ class FlIsBuilderTile(maxIslSize:Int) extends TileEntity with IDebuggableTile {
     override def updateEntity() {
         super.updateEntity()
         if (worldObj.isRemote) return
-        if (hasWork && worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) > 6) {
+        if (hasWork && worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {// && worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) > 6) {
             hasWork = false
             futureStore = future {
                 val generator = new FloatingIslandGeneration()
