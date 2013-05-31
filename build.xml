@@ -107,11 +107,13 @@
 		<!-- Copy sources -->
 		<copy todir="${mcpsrc.dir}/minecraft">
 			<fileset dir="${src.dir}"/>
-            <fileset dir="LibCorestrike"/>
 			<filterset>
 				<filter token="VERSION" value="${project.version.full}" />
 			</filterset>
 		</copy>
+        <copy todir="${mcpsrc.dir}/minecraft">
+            <fileset dir="LibCorestrike/src"/>
+        </copy>
 	</target>
 
 	<target name="compile" depends="initialize-version,setup,copy-src">
