@@ -197,7 +197,9 @@ class FlIsBuilderTile(maxIslSize:Int) extends TileEntity with IDebuggableTile {
             for (x <- 0 to grid.length - 1) {
                 for (z <- 0 to grid.length - 1) {
                     if (grid(x)(y)(z) == 1) {
-                        worldObj.setBlock(x+offsetX, z+offsetZ, y+offsetY, Block.dirt.blockID)
+                        if (worldObj.isAirBlock(x+offsetX, z+offsetZ, y+offsetY) || worldObj.getBlockMaterial(x+offsetX, z+offsetZ, y+offsetY).isReplaceable) {
+                            worldObj.setBlock(x+offsetX, z+offsetZ, y+offsetY, Block.dirt.blockID)
+                        }
                     }
                 }
             }
