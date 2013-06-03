@@ -2,11 +2,8 @@ package io.sunstrike.islandbuilder.helpers
 
 import net.minecraftforge.common.Configuration
 import io.sunstrike.islandbuilder.helpers.ObjRepo._
-import io.sunstrike.islandbuilder.blocks.FlIsBuilder
-import net.minecraft.block.material.Material
+import io.sunstrike.islandbuilder.blocks.{CrateAssembler, EmptyCrate, FlIsBuilder}
 import io.sunstrike.islandbuilder.items.FlIsModule
-import net.minecraft.item.{Item, ItemStack}
-import net.minecraft.block.Block
 
 /*
  * IsBlConfig
@@ -22,7 +19,9 @@ object IsBlConfig {
 
     //=== Defaults/Vars =============================
     var block_FlIsBuilder_id = 1000
-    var item_FlIsModule_id = 1000
+    var block_CrateAssembler_id = 1001
+    var block_EmptyCrate_id = 1002
+    var item_FlIsModule_id = 4000
 
     //=== Functions =================================
     /**
@@ -34,9 +33,15 @@ object IsBlConfig {
         config.load()
 
         block_FlIsBuilder_id = config.getBlock("FlIsBuilder", block_FlIsBuilder_id).getInt
-        block_FlIsBuilder = new FlIsBuilder(block_FlIsBuilder_id, Material.anvil)
+        block_FlIsBuilder = new FlIsBuilder(block_FlIsBuilder_id)
 
-        item_FlIsModule_id = config.getBlock("FlIsModule", item_FlIsModule_id).getInt
+        block_CrateAssembler_id = config.getBlock("CrateAssembler", block_CrateAssembler_id).getInt
+        block_CrateAssembler = new CrateAssembler(block_CrateAssembler_id)
+
+        block_EmptyCrate_id = config.getBlock("EmptyCrate", block_EmptyCrate_id).getInt
+        block_EmptyCrate = new EmptyCrate(block_EmptyCrate_id)
+
+        item_FlIsModule_id = config.getItem("FlIsModule", item_FlIsModule_id).getInt
         item_FlIsModule = new FlIsModule(item_FlIsModule_id)
 
         config.save()

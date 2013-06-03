@@ -15,6 +15,7 @@ package object islandbuilder {
     final val modId = "IslandBuilder"
     final val modName = "Island Builder"
     final val modVersion = "@VERSION@"
+    final val netChannel = "IsGen"
     final val dependencies = "required-after:LibCorestrike"
     final val modLanguage = "scala"
 

@@ -29,7 +29,7 @@ import net.minecraft.item.{Item, ItemBlock, ItemStack}
  *
  * @author Sunstrike
  */
-class FlIsBuilder(id:Int, mat:Material) extends CSBlock(id, mat) {
+class FlIsBuilder(id:Int) extends CSBlock(id, Material.circuits) {
 
     val pathSideTexMini = "IslandBuilder:MiniBuilder"
     val pathSideTexNorm = "IslandBuilder:NormBuilder"

@@ -7,6 +7,8 @@ import cpw.mods.fml.common.event.{FMLPostInitializationEvent, FMLInitializationE
 import io.sunstrike.islandbuilder.helpers.ObjRepo._
 import io.sunstrike.islandbuilder.helpers.{ForgeRegistration, IsBlConfig}
 import net.minecraftforge.common.Configuration
+import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler
+import io.sunstrike.islandbuilder.network.PacketHandler
 
 /*
  * IslandBuilder
@@ -25,7 +27,9 @@ import net.minecraftforge.common.Configuration
     dependencies = dependencies,
     modLanguage = modLanguage)
 @NetworkMod(clientSideRequired = true,
-    serverSideRequired = false)
+    serverSideRequired = false,
+    channels = Array(netChannel),
+    packetHandler = classOf[PacketHandler])
 object IslandBuilder {
 
     /**
